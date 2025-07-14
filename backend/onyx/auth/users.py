@@ -322,6 +322,8 @@ class UserManager(UUIDIDMixin, BaseUserManager[User, uuid.UUID]):
                         or user_create.email in get_default_admin_user_emails()
                     ):
                         user_create.role = UserRole.ADMIN
+                    else:
+                        user_create.is_active = False
 
                 try:
                     user = await super().create(user_create, safe=safe, request=request)  # type: ignore
