@@ -1,3 +1,1 @@
 FROM ollama/ollama
-
-ENTRYPOINT [ "ollama", "run", "phi4-mini" ]
